@@ -1,6 +1,5 @@
 
- 
-Beautified JavaScript:
+
 //document.ready starts the questions are below with an answer choices the array number in the 
 //answer and a corresponding photo
 
@@ -82,8 +81,11 @@ $(document).ready(function () {
 		var fullIndex;
 
 
-		//var newArray = [];
-		var place = [];
+		var newArray = [];
+        var place = [];
+        
+        //start
+        $("#reset").hide();
 
 		$("start").on("click", function () {
 			displayQuestion();
@@ -94,7 +96,6 @@ $(document).ready(function () {
 		})
 
 		//write the functions to start the timer and display the questions
-
 
 		function startTimer() {
 			if (!running) {
@@ -114,7 +115,7 @@ $(document).ready(function () {
 			noAnswer++;
 		endTime()
 		$("#answerblock").html("<p>Time is up! The correct answer is: " + option.choice[option.answer] + "</p>");
-		hidepicture();
+		removeImage();
 	}
 }
 //complete stop function
@@ -128,23 +129,107 @@ function endTime() {
 
 function displayQuestion() {
 	index = Math.floor(Math.random() * trviaObjects.length);
-	options = trviaObjects[fullIndex];
+	option = trviaObjects[fullIndex];
 }
 }
 //show visual question
 //add answers seperate because answers go away before question
 $("#questionblock").html("<h2>" + option.question + "</h2>");
-for(var i = 0; i < pick.choice.length; i++) {
-var userChoice = $("<div>");
-userChoice.addClass("answerchoice");
+for(var i = 0; i < option.choice.length; i++) {
+    var userChoice = $("<div>");
+    userChoice.addClass("answerchoice");
 //all options and choices of the array
 userChoice.html(option.choice[i]); 
-userChoice.attr("dattavalue", i);
+userChoice.attr("data", i);
 			$("#answerblock").append(userChoice);
 }}
 
 
 //create a click function so the user can select questions
+$(".answerchoice")on("click" function (){
+    userGuess = parseInt($(this).attr("data"));
+
+    if (userGuess === option.answer) {
+        endTime ();
+        correctCount++;
+        userGuess"";
+        $("#answerblock").html("<p>Correct!</p>");
+		removeImage();
+    }
+else {
+    stop();
+    wrongCount++;
+    userGuess="";
+    $("#answerblock").html("<p>Wrong! The correct answer is: " + option.choice[option.answer] + "</p>");
+    removeImage();
+}
+})
+}
+
+
+function removeImage() {
+	$("#answerblock").append("<img src=" + pick.photo + ">");
+	newArray.push(option);
+    options.splice(fullIndex,1);
+
+    var empty = setTimeout(function() {
+		$("#answerblock").empty();
+		timerPerQuest= 30;
+    
+//here part i am working on
+
+
+if ((wrongCount + correctCount + unanswerCount) === numQuestion) {
+    $("#questionblock").empty();
+    $("#questionblock").html("<h3>Game Over!  Your results are below: </h3>");
+    $("#answerblock").append("<h4> Correct: " + correctCount + "</h4>" );
+    $("#answerblock").append("<h4> Incorrect: " + wrongCount + "</h4>" );
+    $("#answerblock").append("<h4> Unanswered: " + unanswerCount + "</h4>" );
+    $("#reset").show();
+    correctCount = 0;
+    wrongCount = 0;
+    unanswerCount = 0;
+
+} else {
+    endTime();
+    displayQuestion();
+
+}
+}, 3000);
+
+
+}
+
+$("#reset").on("click", function() {
+$("#reset").hide();
+$("#answerblock").empty();
+$("#questionblock").empty();
+for(var i = 0; i < place.length; i++) {
+    trviaObjects.push(place[i]);
+}
+runTimer();
+displayQuestion();
+
+})
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //grab the array position for the user's guess
 
 //if else statement for right or wrong answers
