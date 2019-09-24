@@ -144,6 +144,7 @@ $(document).ready(function () {
 			clock= 30;
 
 		if ((wrongCount + correctCount + unanswerCount) === numberOfQuestions) {
+			$("clock").hide();
 			$("#questionblock").empty();
 			$("#questionblock").html("<h3>Game Over!  Here's how you did: </h3>");
 			$("#answerblock").append("<h4> Correct: " + correctCount + "</h4>" );

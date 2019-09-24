@@ -7,9 +7,20 @@ img {
     margin-right: 10px;
     background-color: #29a645;
     border: #007bff;
+    font-size: 20px;
+    color: white;
 
 }
 #clock
 {
     font-size: 15px;
+    color: white;
+}
+ 
+#questionblock {
+    color:white;
+}
+
+#answerblock {
+    color: white;
 }
