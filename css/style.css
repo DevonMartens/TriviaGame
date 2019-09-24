@@ -1,11 +1,15 @@
 img {
     border: 50px;
     border-color: red;
+    margin: 15px;
 }
 .answerchoice {
     margin-right: 10px;
     background-color: #29a645;
     border: #007bff;
 
-   
+}
+#clock
+{
+    font-size: 15px;
 }

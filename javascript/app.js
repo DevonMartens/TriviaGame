@@ -85,7 +85,7 @@ $(document).ready(function () {
 		}
 	}
 	function decrement() {
-		$("clock").html("<h3>Time remaining: " + clock + "</h3>");
+		$("#clock").html("<h3>Time remaining: " + clock + "</h3>");
 	clock --;
 	
 	if (clock === 0) {
