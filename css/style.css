@@ -2,3 +2,10 @@ img {
     border: 50px;
     border-color: red;
 }
+.answerchoice {
+    margin-right: 10px;
+    background-color: #29a645;
+    border: #007bff;
+
+   
+}
