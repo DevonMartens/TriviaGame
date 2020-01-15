@@ -1,6 +1,8 @@
 # TriviaGame
 This repo contains my Homework from GA Tech's coding boot camp Unit 5. 
 
+This app can be viewed through this link:
+ https://devonmartens.github.io/TriviaGame/
 
 About the app:
 Bootstrap, JQuery, HTML, and CSS were used to creat this app.
